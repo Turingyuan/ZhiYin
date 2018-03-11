@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/action_setting"
+            android:icon="@drawable/ic_menu_settings"
+            android:title="@string/menu_setting" />
+        <item
+            android:id="@+id/action_person"
+            android:icon="@drawable/ic_menu_night"
+            android:title="@string/menu_person" />
+        <item
+            android:id="@+id/action_play"
+            android:icon="@drawable/ic_menu_timer"
+            android:title="@string/menu_play" />
+        <item
+            android:id="@+id/action_detect_play"
+            android:icon="@drawable/ic_menu_exit"
+            android:title="@string/menu_detect_play" />
+        <item
+            android:id="@+id/action_about"
+            android:icon="@drawable/ic_menu_about"
+            android:title="@string/menu_about" />
+    </group>
+</menu>

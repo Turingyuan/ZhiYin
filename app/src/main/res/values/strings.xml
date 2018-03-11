@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">指音</string>
+    <string name="menu_setting">功能设置</string>
+    <string name="menu_about">关于指音</string>
+    <string name="menu_play">模拟演奏</string>
+    <string name="menu_person">个人中心</string>
+    <string name="menu_detect_play">手势演奏</string>
+    <string name="drawer_open">抽屉打开</string>
+    <string name="drawer_close">关闭</string>
+</resources>
