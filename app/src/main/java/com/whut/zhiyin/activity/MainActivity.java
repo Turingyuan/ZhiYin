@@ -39,10 +39,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
+        Intent intent;
         switch (item.getItemId()){
             case R.id.action_play:
-                Intent intent=new Intent(this,PlayMusicActivity.class);
+                intent=new Intent(this,PlayMusicActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.action_detect_play:
+                intent=new Intent(this,DetectPlayActivity.class);
                 startActivity(intent);
                 return true;
         }

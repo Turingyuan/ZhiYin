@@ -26,16 +26,19 @@ import android.widget.Toast;
 import com.whut.zhiyin.R;
 import com.whut.zhiyin.util.MyMusicUtils;
 
+import org.opencv.android.CameraBridgeViewBase;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class PlayMusicActivity extends AppCompatActivity {
     private Button button[];// 按钮数组
-    private Button setting;// 设置按钮
+    private TextView setting;// 设置按钮
     private TextView textView;// 简谱
     private MyMusicUtils utils;// 工具类
     private View parent;// 父视图
     private int buttonId[];// 按钮id
     private boolean havePlayed[];// 是否已经播放了声音，当手指在同一个按钮内滑动，且已经发声，就为true
-    private View keys;// 按钮们所在的视图
-    private int pressedkey[];
 
     private Dialog dialog;
     private View dialogView;
@@ -46,8 +49,6 @@ public class PlayMusicActivity extends AppCompatActivity {
     int Music[] = {R.raw.c52,R.raw.d54,R.raw.e56,R.raw.f57,R.raw.g59,R.raw.a61,R.raw.b63,
             R.raw.c40,R.raw.d42,R.raw.e44,R.raw.f45,R.raw.g47,R.raw.a49,R.raw.b51,
             R.raw.c28,R.raw.d30,R.raw.e32,R.raw.f33,R.raw.g35,R.raw.a37,R.raw.b39, };
-    int cnt;
-
     Toolbar toolbar;
 
     @Override
@@ -57,7 +58,7 @@ public class PlayMusicActivity extends AppCompatActivity {
         setContentView(R.layout.activity_play_music);
         init();
 
-        parent = (View) findViewById(R.id.parent);
+        parent = (View) findViewById(R.id.musicplay_layout);
         parent.setClickable(true);
         button[0].setOnTouchListener(new View.OnTouchListener(){
             public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -317,9 +318,8 @@ public class PlayMusicActivity extends AppCompatActivity {
                 return true;
             }
         });
-
-
     }
+
     private  void init(){
         toolbar=(Toolbar)findViewById(R.id.app_toolbar);
         setSupportActionBar(toolbar);
@@ -331,7 +331,7 @@ public class PlayMusicActivity extends AppCompatActivity {
 
         // 新建工具类
         utils = new MyMusicUtils(getApplicationContext());
-        textView = (TextView) findViewById(R.id.text);
+        textView = (TextView) findViewById(R.id.tv_playmusic_text);
         textView.setClickable(true);
         textView.setMovementMethod(ScrollingMovementMethod.getInstance());
         // 注意如果想要滚动条时刻显示, 必须加上以下语句:
@@ -371,6 +371,109 @@ public class PlayMusicActivity extends AppCompatActivity {
             havePlayed[i] = false;
         }
 
+
+        dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_setting,
+                null);
+
+        dialog = new Dialog(new ContextThemeWrapper(this,
+                R.style.AlertDialogCustom));
+        dialog.setCancelable(false);
+        dialog.setContentView(dialogView);
+        dialog.setTitle("设置");
+        cancel = (Button) dialogView.findViewById(R.id.buttoncancel);
+        quit = (Button) dialogView.findViewById(R.id.buttonquit);
+        spinner = (Spinner) dialogView.findViewById(R.id.spinner1);
+
+        List<String> list = new ArrayList<String>();
+        list.add("祝你生日快乐");
+        list.add("两只老虎");
+        list.add("小星星");
+        list.add("铃儿响叮当");
+        list.add("世上只有妈妈好");
+        list.add("我是一个粉刷匠");
+        list.add("上学歌");
+        list.add("无");
+
+        spinner.setAdapter(new ArrayAdapter<String>(getApplicationContext(),
+                R.layout.geci_item, list));
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int position, long id) {
+                // TODO Auto-generated method stub
+                switch (position) {
+                    case 0:
+                        textView.setText(PlayMusicActivity.this
+                                .getString(R.string.happybirthday));
+                        break;
+                    case 1:
+                        textView.setText(PlayMusicActivity.this
+                                .getString(R.string.twotigers));
+                        break;
+                    case 2:
+                        textView.setText(PlayMusicActivity.this
+                                .getString(R.string.stars));
+                        break;
+                    case 3:
+                        textView.setText(PlayMusicActivity.this.getString(R.string.ding));
+                        break;
+                    case 4:
+                        textView.setText(PlayMusicActivity.this.getString(R.string.mom));
+                        break;
+                    case 5:
+                        textView.setText(PlayMusicActivity.this
+                                .getString(R.string.brush));
+                        break;
+                    case 6:
+                        textView.setText(PlayMusicActivity.this
+                                .getString(R.string.schooling));
+                        break;
+                    case 7:
+                        textView.setText(PlayMusicActivity.this
+                                .getString(R.string.title));
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // TODO Auto-generated method stub
+                textView.setText("简谱");
+            }
+        });
+        spinner.setSelection(7);
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                dialog.dismiss();
+            }
+        });
+        quit.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                PlayMusicActivity.this.finish();
+            }
+        });
+
+        // 设置界面
+        setting = (TextView) findViewById(R.id.tv_appbar_setting);
+
+        setting.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                dialog.show();
+            }
+        });
+
     }
     @Override
     public boolean onSupportNavigateUp() {
@@ -397,3 +500,4 @@ public class PlayMusicActivity extends AppCompatActivity {
         }
     }
 }
+
