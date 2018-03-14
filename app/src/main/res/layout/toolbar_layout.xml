@@ -12,18 +12,18 @@
             android:layout_height="wrap_content"
             android:layout_gravity = "center">
             <TextView
-                android:id="@+id/tv_page1"
+                android:id="@+id/readmusicTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="听曲绘谱"
+                android:text="@string/readMusicButton"
                 android:textSize="16dp"
                 android:layout_marginRight="5dp"
                 android:textColor="@color/white"/>
             <TextView
-                android:id="@+id/tv_page2"
+                android:id="@+id/drawMusicNoteByHandTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="手动绘谱"
+                android:text="@string/drawMusicNoteByHand"
                 android:textSize="16dp"
                 android:layout_marginLeft="5dp"
                 android:textColor="@color/white"/>

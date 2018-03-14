@@ -17,7 +17,7 @@
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="简谱："
+            android:text="@string/numberedMusicalNotation"
             android:textSize="30sp" />
 
         <Spinner
@@ -33,7 +33,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="注：\n数字前的“+”表示高音；\n数字后的“-”表示低音。" />
+        android:text="@string/annotation" /> />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -47,7 +47,7 @@
             android:layout_margin="20dp"
             android:background="@drawable/button_selector"
             android:padding="20dp"
-            android:text="退    出" />
+            android:text="@string/quit" />
 
         <Button
             android:id="@+id/buttoncancel"
@@ -56,7 +56,7 @@
             android:layout_margin="20dp"
             android:background="@drawable/button_selector"
             android:padding="20dp"
-            android:text="返    回" />
+            android:text="@string/returnText" />
     </LinearLayout>
 
 </LinearLayout>

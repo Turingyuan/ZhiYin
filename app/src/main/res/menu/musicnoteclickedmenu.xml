@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <item
+        android:id="@+id/riseToneMenuItem"
+        android:title="@string/riseToneMenuItem"></item>
+    <item
+        android:id="@+id/fallToneMenuItem"
+        android:title="@string/fallToneMenuItem"
+        app:showAsAction="never"></item>
+    <item
+        android:id="@+id/pauseToneMenuItem"
+        android:title="@string/pauseToneMenuItem"
+        app:showAsAction="never"></item>
+    <item
+        android:id="@+id/deleteToneMenuItem"
+        android:title="@string/deleteToneMenuItem"
+        app:showAsAction="never"></item>
+    <item
+        android:id="@+id/addToneMenuItem"
+        android:title="@string/addToneMenuItem"
+        app:showAsAction="never"></item>
+    <item
+        android:id="@+id/changeToneMenuItem"
+        android:title="@string/changeToneMenuItem"
+        app:showAsAction="never"></item>
+
+</menu>

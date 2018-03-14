@@ -7,4 +7,81 @@
     <string name="menu_detect_play">手势演奏</string>
     <string name="drawer_open">抽屉打开</string>
     <string name="drawer_close">关闭</string>
+    <string name="numberedMusicalNotation">简谱：</string>
+    <string name="annotation">注：\n数字前的“+”表示高音；\n数字后的“-”表示低音。</string>
+    <string name="quit">退\t出</string>
+    <string name="returnText">返\t回</string>
+    <string name="drawMusicNoteByHand">手动绘谱</string>
+
+    <!--
+    界面上的功能按钮
+-->
+    <string name="readMusicButton">听曲绘谱</string>
+    <string name="saveButton">保存</string>
+    <string name="importButton">导入</string>
+    <string name="playMusicButton">播放</string>
+
+    <!--
+        乐谱基本信息
+    -->
+    <string name="musicScoreNameEditText">乐谱名</string>
+    <string name="keynoteTextView">1=</string>
+    <string name="authorEditText">作者</string>
+
+
+    <!--
+        听音绘谱控制区域界面文本
+    -->
+    <string name="beginButtonInReadMusicControl">开始</string>
+    <string name="endButtonInReadMusicControl">结束</string>
+    <string name="finishButtonInReadMusicControl">完成</string>
+
+    <!--
+        当点击音符时，出现的修正选项菜单
+    -->
+    <string name="riseToneMenuItem">升调</string>
+    <string name="fallToneMenuItem">降调</string>
+    <string name="pauseToneMenuItem">休止</string>
+    <string name="deleteToneMenuItem">删除</string>
+    <string name="addToneMenuItem">添加</string>
+    <string name="changeToneMenuItem">修改</string>
+    <!--
+        乐谱大调，需要补充
+    -->
+    <string-array name="majorIndex">
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+        <item>F</item>
+        <item>G</item>
+        <item>A</item>
+        <item>B</item>
+    </string-array>
+
+    <!--
+        拍号
+        如2/4 拍子中的"2"表示每小节两拍，"4"表示以四分音符为一拍，
+        即，2/4 即表示以四分音符为一拍，每小节有两拍。
+    -->
+    <string-array name="timeSignature">
+        <item>4/4</item>
+        <item>3/4</item>
+        <item>2/4</item>
+        <item>1/4</item>
+    </string-array>
+
+    <!--
+        每分钟的节拍数
+        标识每节拍的时长
+    -->
+    <string-array name="barsPerMin">
+        <item>60</item>
+        <item>30</item>
+        <item>90</item>
+        <item>120</item>
+        <item>150</item>
+    </string-array>
+
+
+
 </resources>
