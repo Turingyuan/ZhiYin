@@ -3,6 +3,8 @@
     package="com.whut.zhiyin">
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <supports-screens
         android:anyDensity="true"
         android:largeScreens="true"

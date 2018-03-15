@@ -1,5 +1,6 @@
 package com.whut.zhiyin.activity;
 
+import android.Manifest;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.internal.NavigationMenu;
@@ -29,7 +30,11 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import permissions.dispatcher.NeedsPermission;
+import permissions.dispatcher.RuntimePermissions;
 
+
+@RuntimePermissions
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private DrawerLayout drawerLayout;
     private Toolbar toolbar;
@@ -111,6 +116,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        /**
+         * 权限分配
+         */
+        MainActivityPermissionsDispatcher.applyForPermissionWithPermissionCheck(this);
         init();
 
         musicScoreLayout = new MusicScoreLayout(this);
@@ -131,6 +141,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mToggle.syncState();
         drawerLayout.addDrawerListener(mToggle);
     }
+
+
+    @NeedsPermission({Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.RECORD_AUDIO, Manifest.permission.CAMERA})
+    void applyForPermission() {
+        return;
+    }
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
