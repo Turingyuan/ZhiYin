@@ -12,5 +12,22 @@
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:fitsSystemWindows="true"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right">
+            <TextView
+                android:id="@+id/tv_appbar_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="设置"
+                android:textSize="16dp"
+                android:textColor="@color/white"
+                android:layout_marginRight="10dp"/>
+
+        </LinearLayout>
+
+        </android.support.v7.widget.Toolbar>
 </android.support.design.widget.AppBarLayout>

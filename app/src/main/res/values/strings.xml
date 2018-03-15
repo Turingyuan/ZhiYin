@@ -84,4 +84,12 @@
 
 
 
+    <string name="title">LittlePiano</string>
+    <string name="happybirthday">生日快乐\n556517 556521  5553176 443121</string>
+    <string name="stars">小星星 \n1155665 4433221 5544332 5544332 1155665 4433221</string>
+    <string name="twotigers">两只老虎\n1231 1231 345 345 565431 565431 35\-1 35\-1</string>
+    <string name="ding">铃儿响叮当\n333 333 35123 4444 4333 32212 5 333 333 35123 4444 4333 55421</string>
+    <string name="mom">世上只有妈妈好\n6535+1 65 6 356532 16\- 53 2 223556 32 1 53 21 6\-1 5\-</string>
+    <string name="brush">我是一个粉刷匠\n5353531 24325 5353531 24321 2244315 24325 5353531 24321</string>
+    <string name="schooling">上学歌\n12315 66+165 66+1563 653531231</string>
 </resources>
