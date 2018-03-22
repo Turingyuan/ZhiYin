@@ -149,18 +149,21 @@ public class MusicScore {
                 if (temp == BARLINE) {//如果当前值是BARLINE
                     list.add(N + cnt - 1);
                     list.add(temp);//再将BARLINE加入进去
-                    Log.d("BARLINE", temp + "");
                     cnt = 1;
-                    N = syllableNamesList.get(++i);//置为BARLINE的下一个值
-                }else{//如果当前值不是BARLINE
+                    if (i < syllableNamesList.size() - 1) {
+                        N = syllableNamesList.get(++i);//置为BARLINE的下一个值
+                    }else{
+                        N = 0;
+                    }
+                } else {//如果当前值不是BARLINE
                     if (N != temp || cnt == 5) {//已经不连续了，或者达到了最大个数5个
                         if (cnt == 5) {//达到5个
                             list.add(N + 3);
                             list.add(N + 0);
-                        }else{
-                            list.add( N + cnt - 1);
+                        } else {
+                            list.add(N + cnt - 1);
                         }
-                        cnt=1;
+                        cnt = 1;
                         N = temp;
                     } else {
                         cnt++;
@@ -184,18 +187,24 @@ public class MusicScore {
         *从前往后依次扫描，如果累计值达到numOfBeatsPerBar*4，则添加小节线
         */
        int cnt = 1;
-       for(int i=0;i<syllableNamesList.size();i++) {
+       for (int i = 0; i < syllableNamesList.size(); i++) {
            if (cnt == numOfBeatsPerBar * 4) {
                syllableNamesList.add(++i, new Integer(BARLINE));//之所以 是++i，是因为添加一个之后，i的位置也加1，指向后面那个位置
                cnt = 1;//计数器复位
-           }else{
-               int temp = syllableNamesList.get(i) %5;
+           } else if (cnt < numOfBeatsPerBar * 4) {
+               int temp = syllableNamesList.get(i) % 5;
                if (temp == 4) {
-                   cnt += 6;//要对这里进行修改，一+6之后，变得太多，导致没有能达到16个值了，所以后面就没有了
-
+                   cnt += 6;//要对这里进行修改，一+6之后，变得太多，导致没有能达到16个值了，所以后面就没有了：使用拆分法解决这个问题
                } else {
                    cnt += (temp + 1);
                }
+           } else {
+               i--;//i得回退一个
+               int offset = cnt - numOfBeatsPerBar * 4;
+               int temp = syllableNamesList.get(i) % 5;
+               syllableNamesList.set(i, syllableNamesList.get(i) - offset);
+               syllableNamesList.add(i+1, syllableNamesList.get(i) - temp + offset);
+               cnt = cnt + temp - offset;
            }
        }
    }
