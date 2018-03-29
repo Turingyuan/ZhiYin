@@ -144,6 +144,7 @@ public class MusicScore {
         if (syllableNamesList.size() > 0) {
             int cnt = 1;
             int N = syllableNamesList.get(0);
+
             for (int i = 1; i < syllableNamesList.size(); i++) {
                 int temp = syllableNamesList.get(i);
                 if (temp == BARLINE) {//如果当前值是BARLINE
@@ -169,6 +170,9 @@ public class MusicScore {
                         cnt++;
                     }
                 }
+            }
+            if (syllableNamesList.get(syllableNamesList.size() - 1) != BARLINE) {
+                list.add(N);
             }
             syllableNamesList=list;
         }
