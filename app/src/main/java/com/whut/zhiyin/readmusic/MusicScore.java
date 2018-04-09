@@ -209,15 +209,8 @@ public class MusicScore {
                syllableNamesList.set(i, syllableNamesList.get(i) - offset);
                syllableNamesList.add(i+1, syllableNamesList.get(i) - temp + offset);
 
-               Log.d("TAGS1", cnt + "");
-               Log.d("TAGS2", temp + "");
-               Log.d("TAGS3", syllableNamesList.get(i) - offset + "");
-               Log.d("TAGS4", syllableNamesList.get(i) - temp + offset + "");
-
-
                //cnt经过计算之后应该等于numOfBeatsPerBar*4
                cnt = cnt - offset;
-               Log.d("TAGS5", cnt + "");
 
            }
        }

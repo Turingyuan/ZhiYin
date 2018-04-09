@@ -13,6 +13,9 @@
     <string name="returnText">返\t回</string>
     <string name="drawMusicNoteByHand">手动绘谱</string>
 
+    <string name="localMusicScore" >本地乐谱</string>
+    <string name="cloudMusicScore">云端乐谱</string>
+
     <!--
     界面上的功能按钮
 -->
@@ -20,6 +23,11 @@
     <string name="saveButton">保存</string>
     <string name="importButton">导入</string>
     <string name="playMusicButton">播放</string>
+    <string name="localPreservation">本地保存</string>
+    <string name="uploadCloud">上传</string>
+
+
+
 
     <!--
         乐谱基本信息

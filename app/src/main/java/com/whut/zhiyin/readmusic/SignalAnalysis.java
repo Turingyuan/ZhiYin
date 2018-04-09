@@ -28,6 +28,7 @@ public class SignalAnalysis {
             musicScore.getSignal().add(signal[i]);
         }
 
+        //这样设置窗长和帧移对计算效率来说是最优的
         //设置窗函数
         double[] win = {1000};
 
@@ -63,7 +64,7 @@ public class SignalAnalysis {
 
         //语音端点检测中
         //短时能量阈值
-        double T = 0.05;
+        double T = 0.10;
 
         if (avgEnergy >= T) {//设置阈值简化计算
             double[] frequency = null;//每帧频率
@@ -73,9 +74,6 @@ public class SignalAnalysis {
                 frequency = amdfMod(x, MusicScore.sampleRate);
             }
             //musicScore.getSignal().add(mean(frequency));// TODO: 2018/3/8 均值法计算一个节拍时间的频率，另外的方法是，先进行映射计算，用众数法差别当前节拍时间的状态
-
-            Log.d("MODEC", mode(frequency) + "");
-            Log.d("MUSICNOTE", fre2musicnote(mode(frequency)) + "");
 
             musicScore.getSyllableNamesList().add(fre2musicnote(mode(frequency)));//直接完成转换
         } else {

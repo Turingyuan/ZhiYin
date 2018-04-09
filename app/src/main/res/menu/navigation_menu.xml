@@ -5,6 +5,14 @@
             android:id="@+id/action_setting"
             android:icon="@drawable/ic_menu_settings"
             android:title="@string/menu_setting" />
+
+        <item
+            android:id="@+id/localMusicScore"
+            android:title="@string/localMusicScore"/>
+        <item
+            android:id="@+id/cloudMusicScore"
+            android:title="@string/cloudMusicScore"/>
+
         <item
             android:id="@+id/action_person"
             android:icon="@drawable/ic_menu_night"

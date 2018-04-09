@@ -123,7 +123,7 @@ public class MusicScoreLayout implements AdapterView.OnItemClickListener, View.O
 
 
     /**
-     * //TODO 当加入音乐特征提取部分之后 ，这里的代码需要调整
+     * TODO 当加入音乐特征提取部分之后 ，这里的代码需要调整
      */
     public void updateMusicNoteLayout() {
         getBaseMusicFinaleData();

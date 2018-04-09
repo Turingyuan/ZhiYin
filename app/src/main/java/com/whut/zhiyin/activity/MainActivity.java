@@ -16,7 +16,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupMenu;
 import android.widget.TableLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.whut.zhiyin.R;
@@ -81,6 +83,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @BindView(R.id.laImageView) ImageView laImageView;
     @BindView(R.id.rlaImageView) ImageView rlaImageView;
     @BindView(R.id.siImageView) ImageView siImageView;
+
+
+
+    @BindView(R.id.drawMusicNoteByHandTextView) TextView drawMusicNoteByHandTextView;
+    @BindView(R.id.readmusicTextView) TextView readMusicTextView;
+    @BindView(R.id.saveTextView) TextView saveTextView;
+
 
     @BindView(R.id.readMusicOperateAreaLayout)
     LinearLayout readMusicOperateAreaLayout;
@@ -147,7 +156,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
      * @param view
      */
     @OnClick({R.id.doImageView, R.id.rdoImageView, R.id.reImageView, R.id.rreImageView, R.id.miImageView, R.id.faImageView, R.id.rfaImageView, R.id.solImageView, R.id.rsolImageView, R.id.laImageView,
-            R.id.rlaImageView, R.id.siImageView, R.id.beginButtonInReadMusicControl, R.id.endButtonInReadMusicControl, R.id.finishButtonInReadMusicControl})
+            R.id.rlaImageView, R.id.siImageView, R.id.beginButtonInReadMusicControl, R.id.endButtonInReadMusicControl, R.id.finishButtonInReadMusicControl,R.id.readmusicTextView,R.id.drawMusicNoteByHandTextView,R.id.saveTextView})
     public void onClick(View view) {
         // TODO: 2018/1/31 按钮相应事件，这种方法比较简洁
         switch (view.getId()) {
@@ -211,9 +220,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
             case R.id.finishButtonInReadMusicControl: {
                 readMusicHandler.finish();
-                //界面显示控制
-                /*readMusicOperateAreaLayout.setVisibility(View.INVISIBLE);
-                keyBoardLayout.setVisibility(View.VISIBLE);*/
+                readMusicOperateAreaLayout.setVisibility(View.INVISIBLE);
+                keyBoardLayout.setVisibility(View.VISIBLE);
+                break;
+            }
+            case R.id.drawMusicNoteByHandTextView:{
+                readMusicOperateAreaLayout.setVisibility(View.INVISIBLE);
+                keyBoardLayout.setVisibility(View.VISIBLE);
+                break;
+            }
+            case R.id.readmusicTextView:{
+                readMusicOperateAreaLayout.setVisibility(View.VISIBLE);
+                keyBoardLayout.setVisibility(View.INVISIBLE);
+                break;
+            }
+            case R.id.saveTextView:{
+                // TODO: 2018/4/9 数据保存功能，保存到本地数据库
+                Toast.makeText(this,"保存" , Toast.LENGTH_SHORT).show();
+
                 break;
             }
             default: {
@@ -221,5 +245,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         }
     }
+
+
+
 
 }
