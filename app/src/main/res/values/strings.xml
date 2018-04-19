@@ -13,8 +13,10 @@
     <string name="returnText">返\t回</string>
     <string name="drawMusicNoteByHand">手动绘谱</string>
 
-    <string name="localMusicScore" >本地乐谱</string>
+    <string name="localMusicScore">本地乐谱</string>
     <string name="cloudMusicScore">云端乐谱</string>
+
+    <string name="musicScoreList">乐谱列表</string>
 
     <!--
     界面上的功能按钮
@@ -25,8 +27,6 @@
     <string name="playMusicButton">播放</string>
     <string name="localPreservation">本地保存</string>
     <string name="uploadCloud">上传</string>
-
-
 
 
     <!--
@@ -91,7 +91,6 @@
     </string-array>
 
 
-
     <string name="title">LittlePiano</string>
     <string name="happybirthday">生日快乐\n556517 556521  5553176 443121</string>
     <string name="stars">小星星 \n1155665 4433221 5544332 5544332 1155665 4433221</string>
@@ -100,4 +99,5 @@
     <string name="mom">世上只有妈妈好\n6535+1 65 6 356532 16\- 53 2 223556 32 1 53 21 6\-1 5\-</string>
     <string name="brush">我是一个粉刷匠\n5353531 24325 5353531 24321 2244315 24325 5353531 24321</string>
     <string name="schooling">上学歌\n12315 66+165 66+1563 653531231</string>
+    <string name="title_activity_local_music_score">LocalMusicScoreActivity</string>
 </resources>

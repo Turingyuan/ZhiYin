@@ -41,7 +41,6 @@
             android:layout_height="wrap_content">
             <EditText
                 android:background="@null"
-                android:cursorVisible="false"
                 android:id="@+id/musicScoreNameEditText"
                 android:text="@string/musicScoreNameEditText"
                 android:layout_centerHorizontal="true"
@@ -89,7 +88,6 @@
                 </Spinner>
 
                 <EditText
-                    android:cursorVisible="false"
                     android:id="@+id/authorEditText"
                     android:layout_alignParentRight="true"
                     android:maxLines="1"

@@ -25,6 +25,7 @@ import com.whut.zhiyin.R;
 import com.whut.zhiyin.readmusic.MusicScore;
 import com.whut.zhiyin.readmusic.MusicScoreLayout;
 import com.whut.zhiyin.readmusic.ReadMusicHandler;
+import com.whut.zhiyin.util.DBUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,14 +45,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     ActionBarDrawerToggle mToggle;
 
 
-    // TODO: 2018/2/1 这是一个测试数据的临时存储类，将来会被删除
-    private List<Integer> syllableList=new ArrayList<Integer>();
-    {
-        for(int i=0;i<184;i++){
-            syllableList.add(i);
-        }
-    }
-
     // 这个Activity是乐谱绘制的控制组件
     //而MusicScore类是信息传递类
     //这是由这个Activity所起的控制作用决定
@@ -60,11 +53,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private ReadMusicHandler readMusicHandler;
 
-    //布局里的控件
-    /*@BindView(R.id.readmusicButton) Button readMusicButton;
-    @BindView(R.id.saveButtonInReadMusic) Button saveButtonInReadMusic;
-    @BindView(R.id.importButtonInReadMusic) Button importButtonInReadMusic;
-    @BindView(R.id.playMusicButtonInReadMusic) Button playMusicMuttonInReadMusic;*/
 
     @BindView(R.id.beginButtonInReadMusicControl) Button beginButtonInReadMusicControl;
     @BindView(R.id.endButtonInReadMusicControl) Button endButtonInReadMusicControl;
@@ -146,6 +134,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 intent=new Intent(this,DetectPlayActivity.class);
                 startActivity(intent);
                 return true;
+            case R.id.localMusicScore:{
+                // TODO: 2018/4/18 本地乐谱 
+                intent=new Intent(this,LocalMusicScoreActivity.class);
+                startActivity(intent);
+                return true;
+            }
+            case R.id.cloudMusicScore:{
+
+                // TODO: 2018/4/18 云端乐谱
+                return true;
+            }
         }
         return false;
     }
@@ -236,8 +235,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
             case R.id.saveTextView:{
                 // TODO: 2018/4/9 数据保存功能，保存到本地数据库
-                Toast.makeText(this,"保存" , Toast.LENGTH_SHORT).show();
-
+                DBUtil dbUtil = new DBUtil(this);
+                dbUtil.insert(musicScore);
+                Toast.makeText(MainActivity.this, "保存成功", Toast.LENGTH_SHORT).show();
                 break;
             }
             default: {

@@ -111,6 +111,7 @@ public class MusicScoreLayout implements AdapterView.OnItemClickListener, View.O
      * 这一般是在听音绘谱部分使用
      */
     public void getBaseMusicFinaleData() {
+        musicScore.setMusicScoreName(musicScoreNameEditText.getText().toString());
         musicScore.setAuthor(authorEditText.getText().toString());
         musicScore.setMajor(map.get(majorSpinner.getSelectedItem().toString()));//有关音符的转换工作都交由MusicScore类
         String timeSignature = timeSignatureSpinner.getSelectedItem().toString();
@@ -338,7 +339,6 @@ public class MusicScoreLayout implements AdapterView.OnItemClickListener, View.O
                     Log.d(this.getClass().toString(), "TextView 获得焦点");
                 } else {
                     musicScore.setMusicScoreName(musicScoreNameEditText.getText().toString());
-                    //musicScoreNameEditText.setCursorVisible(false);
                 }
             }
             case R.id.authorEditText: {
@@ -347,7 +347,6 @@ public class MusicScoreLayout implements AdapterView.OnItemClickListener, View.O
                     Log.d(this.getClass().toString(), "TextView 获得焦点");
                 } else {
                     musicScore.setAuthor(authorEditText.getText().toString());
-                    //authorEditText.setCursorVisible(false);
                 }
             }
             default: {

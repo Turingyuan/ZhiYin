@@ -13,26 +13,26 @@ import java.util.List;
 /** 这一个乐谱数据类，是音乐特征提取部分和绘谱部分的交互，包含经过信号分析后的乐谱数据，乐谱的基本特征，如乐谱的基本大调，每小节的节拍数。它向绘部分提供的便是一个唱名序列，绘谱部分只需要将唱名序列里的唱名绘制出来即可，不需变调等转换逻辑，仅仅是了个绘制工具。而其他的属性也会表现到不同的控件里。对音符处理逻辑部分完全由MusicScore类来完成。 */
 public class MusicScore {
    /** 乐谱名 */
-   private static String musicScoreName;
+   private  String musicScoreName;
    /** 乐谱的作者 */
-   private static String author;
+   private  String author;
    /** 乐谱数据，可以直接用来绘谱的 */
    private List<Short> signal;
    /** 乐谱的基本大调如C大调 */
-   private static int major;
+   private  int major;
    /** 这个变量表示 以   几分音符为一拍  ，即2/4表示 中的4，以4分音符为一拍，不管能不能实现，先这样设计 */
-   private static int whichNoteInABeat;
+   private  int whichNoteInABeat;
     /**
      * 每小节的节拍数
      */
-    private static int numOfBeatsPerBar = 4;
+    private  int numOfBeatsPerBar = 4;
    /** 这是一个唱名序列，用于绘制乐谱，其值范围为0、1、2、3、4、5、6、7、8、9、10、11、12、13、14、15、16、17、18、19、20、21、22
     * 其中0表示休止符，1——7为低音表示，8——14为正常音表示，15——21，为高音表示，之后再有特殊的图片，依次往后加
     * 乐谱绘制只需将这个序列里的音符绘制出来即可，而关于谱大调的轮换，乐谱数据的修改，都应该在这个类里面实现
     * TODO 如果仍有音符加入进来，需要设计一个完备的表示体系，原型暂时先这样，当然这只考虑了绘制7个音的情况，之后如果要扩展绘谱的规范性，则需要重新设计，代码实现时要尽量以减小与它的耦合性 */
    private List<Integer> syllableNamesList;
    /** 每分钟的节拍数,标识每节拍的时长 */
-   private static int barsPerMin;
+   private  int barsPerMin;
 
    /**
     * 采样频率

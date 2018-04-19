@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.whut.zhiyin">
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
     <supports-screens
         android:anyDensity="true"
         android:largeScreens="true"
         android:normalScreens="true"
         android:resizeable="false"
         android:smallScreens="false" />
+
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
@@ -23,6 +26,12 @@
     <uses-feature
         android:name="android.hardware.camera.front.autofocus"
         android:required="false" />
+
+    <!--     应用权限声明 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 
     <application
         android:allowBackup="true"
@@ -39,18 +48,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.PlayMusicActivity" />
-        <activity android:name=".activity.DetectPlayActivity"
-            android:screenOrientation="landscape"></activity>
+        <activity
+            android:name=".activity.DetectPlayActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.LocalMusicScoreActivity"
+            android:label="@string/title_activity_local_music_score"
+            android:theme="@style/AppTheme"></activity>
     </application>
-
-
-
-    <!--
-    应用权限声明
-    -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 
 </manifest>
