@@ -5,10 +5,14 @@ android {
     defaultConfig {
         applicationId "com.whut.zhiyin"
         minSdkVersion 15
-        targetSdkVersion 26
+        targetSdkVersion 21
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a"
+        }
     }
     buildTypes {
         release {
@@ -20,26 +24,34 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:multidex:1.0.1'
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation 'com.android.support:design:26.1.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    implementation 'com.zhy:okhttputils:2.6.2'
+    //implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    //implementation 'com.zhy:okhttputils:2.6.2'
     implementation 'com.google.code.gson:gson:2.8.2'
-    implementation 'com.github.bumptech.glide:glide:3.8.0'
-    implementation 'me.wcy:lrcview:2.0.1'
-    implementation 'com.hwangjr.rxbus:rxbus:2.0.0'
-    implementation 'org.greenrobot:greendao:3.2.2'
+    //implementation 'com.github.bumptech.glide:glide:3.8.0'
+    //implementation 'me.wcy:lrcview:2.0.1'
+    //implementation 'com.hwangjr.rxbus:rxbus:2.0.0'
+    //implementation 'org.greenrobot:greendao:3.2.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation project(':openCVLibrary320')
-
-    compile 'com.jakewharton:butterknife:8.2.1' //添加这行
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.2.1' //添加这行
-
+    //4月新导入的依赖
+    compile files('libs/Bmob_Push_V0.9beta_20160520.jar')
+    compile 'cn.bmob.android:bmob-sdk:3.4.7-aar'
+    compile files('libs/universal-image-loader-1.8.6-with-sources.jar')
+    compile files('libs/eventbus-2.4.0.jar')
+    compile 'com.michaelpardo:activeandroid:3.1.0-SNAPSHOT'
+    compile 'me.iwf.photopicker:PhotoPicker:0.1.8'
+    compile 'com.jakewharton:butterknife:8.2.1'
+    //添加这行
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.2.1'
+    //添加这行
     /*动态权限申请依赖*/
     compile 'com.github.hotchemi:permissionsdispatcher:3.1.0'
     annotationProcessor 'com.github.hotchemi:permissionsdispatcher-processor:3.1.0'
-
+    compile project(':vitamio')
 }

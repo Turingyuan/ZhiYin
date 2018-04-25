@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.internal.NavigationMenu;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -22,6 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.whut.zhiyin.R;
+import com.whut.zhiyin.fragment.UserFragment;
 import com.whut.zhiyin.readmusic.MusicScore;
 import com.whut.zhiyin.readmusic.MusicScoreLayout;
 import com.whut.zhiyin.readmusic.ReadMusicHandler;
@@ -83,6 +86,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     LinearLayout readMusicOperateAreaLayout;
     @BindView(R.id.keyBoardLayout)
     TableLayout keyBoardLayout;
+    private UserFragment mUserFragment;
+    public FragmentManager fragmentmanager;
+    public FragmentTransaction fragmenttransaction;
 
 
     @Override
@@ -125,6 +131,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         Intent intent;
+        fragmentmanager = getSupportFragmentManager();
+        FragmentTransaction fragmenttransaction = fragmentmanager.beginTransaction();
+        hideFragments(fragmenttransaction);
         switch (item.getItemId()){
             case R.id.action_play:
                 intent=new Intent(this,PlayMusicActivity.class);
@@ -145,7 +154,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 // TODO: 2018/4/18 云端乐谱
                 return true;
             }
+            case R.id.action_person:
+                if (mUserFragment != null) {
+                    fragmenttransaction.show(mUserFragment);
+                } else {
+                    mUserFragment = new UserFragment();
+                    fragmenttransaction.add(R.id.content, mUserFragment);
+                }
+                break;
         }
+        fragmenttransaction.commit();
         return false;
     }
 
@@ -243,6 +261,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             default: {
                 break;
             }
+        }
+    }
+
+
+    private void hideFragments(
+            android.support.v4.app.FragmentTransaction fragment) {
+        if (mUserFragment != null) {
+            fragment.hide(mUserFragment);
         }
     }
 
